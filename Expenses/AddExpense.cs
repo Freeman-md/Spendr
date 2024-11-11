@@ -50,34 +50,30 @@ namespace Spendr.Expenses
 
                 _logger.LogInformation($"Expense added for {expense.Username}");
 
-                var successResponse = new ApiResponse<Expense>
-                {
-                    status = "success",
-                    message = "Expense created successfully",
-                    data = expense
-                };
-
                 return new AddExpenseResponse
                 {
                     Expense = expense,
-                    HttpResponse = await req.CreateJsonResponseAsync(HttpStatusCode.Created, successResponse)
+                    HttpResponse = await req.CreateJsonResponseAsync(HttpStatusCode.Created, new
+                    {
+                        status = "success",
+                        message = "Expense created successfully",
+                        data = expense
+                    })
                 };
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error processing AddExpense function");
 
-                var errorResponse = new ApiResponse<object>
-                {
-                    status = "error",
-                    message = "Failed to create expense",
-                    error = new { details = ex.Message }
-                };
-
                 return new AddExpenseResponse
                 {
                     Expense = null,
-                    HttpResponse = await req.CreateJsonResponseAsync(HttpStatusCode.BadRequest, errorResponse)
+                    HttpResponse = await req.CreateJsonResponseAsync(HttpStatusCode.BadRequest, new
+                    {
+                        status = "error",
+                        message = "Failed to create expense",
+                        error = new { details = ex.Message }
+                    })
                 };
             }
         }
