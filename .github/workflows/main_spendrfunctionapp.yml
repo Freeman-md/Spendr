@@ -38,6 +38,6 @@ jobs:
         id: fa
         with:
           app-name: 'SpendrFunctionApp'
-          slot-name: 'Production'
+          slot-name: 'Dev'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D39AC3A4BF934B70A9033F0F488F9214 }}
