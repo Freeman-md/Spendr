@@ -16,7 +16,7 @@ public class GetExpenses
         _logger = logger;
     }
 
-    [Function("GetExpense")]
+    [Function("GetExpenses")]
     public async Task<HttpResponseData> Run(
         [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req,
         [CosmosDBInput(databaseName: "Spendr", containerName: "Expenses", Connection = "CosmosDBConnectionString", SqlQuery = "SELECT * FROM c")] IEnumerable<Expense> expenses
