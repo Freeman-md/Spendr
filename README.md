@@ -3,6 +3,8 @@ Spendr - Serverless Expense Tracker API
 
 Spendr is a serverless API built with Azure Functions to securely store and retrieve expense data using Cosmos DB. This project leverages cloud-native Azure services to provide a highly scalable, secure, and low-maintenance solution.
 
+![dev(spendrfunctionapp)](https://github.com/user-attachments/assets/ac99988d-8d36-4865-b960-714183d2c728)
+
 ### **Key Features**
 
 -   **AddExpense and GetExpenses Endpoints**: Handles HTTP requests to add and retrieve expense data.
